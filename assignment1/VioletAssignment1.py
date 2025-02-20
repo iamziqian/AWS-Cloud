@@ -70,7 +70,7 @@ def main():
   objects= [
       ("assignment1.txt", "Empty Assignment 1"),
       ("assignment2.txt", "Empty Assignment 2"),
-      ("recording1.jpg", "/Users/ziqianfu/CS6620/CS6620/Grace.jpg") 
+      ("recording1.jpg", "/Users/ziqianfu/CS6620/CS6620/assignment1/Grace.jpg") 
   ]
 
   # initialize IAM client with IAM user session
