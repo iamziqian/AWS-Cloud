@@ -1,0 +1,167 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "S3SizeTrackingStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "S3SizeTrackingStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "S3SizeTrackingStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "S3SizeTrackingStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/814eabb8a67ebc35363b46165ae031b9e14683b93523eef84f403e9511650012.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "S3SizeTrackingStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "S3SizeTrackingStack.assets"
+      ],
+      "metadata": {
+        "/S3SizeTrackingStack/violet-test-bucket-ziqianfu-part2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "violettestbucketziqianfupart25D008A45"
+          }
+        ],
+        "/S3SizeTrackingStack/violet-test-bucket-ziqianfu-part2/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "violettestbucketziqianfupart2Policy53D86824"
+          }
+        ],
+        "/S3SizeTrackingStack/violet-test-bucket-ziqianfu-part2/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "violettestbucketziqianfupart2AutoDeleteObjectsCustomResource734C1E53"
+          }
+        ],
+        "/S3SizeTrackingStack/violet-test-bucket-ziqianfu-part2/Notifications/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "violettestbucketziqianfupart2Notifications3AED593B"
+          }
+        ],
+        "/S3SizeTrackingStack/violet-test-bucket-ziqianfu-part2/AllowBucketNotificationsToS3SizeTrackingStacksizeTrackingLambda5B97779F": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "violettestbucketziqianfupart2AllowBucketNotificationsToS3SizeTrackingStacksizeTrackingLambda5B97779F011A34CD"
+          }
+        ],
+        "/S3SizeTrackingStack/LatestNodeRuntimeMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LatestNodeRuntimeMap"
+          }
+        ],
+        "/S3SizeTrackingStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/S3SizeTrackingStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/S3SizeTrackingStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/S3SizeTrackingStack/S3-object-size-history-part2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3objectsizehistorypart2CB6E683A"
+          }
+        ],
+        "/S3SizeTrackingStack/S3SizeTrackingRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3SizeTrackingRole9EF56F58"
+          }
+        ],
+        "/S3SizeTrackingStack/S3SizeTrackingRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3SizeTrackingRoleDefaultPolicyCCCDFDA0"
+          }
+        ],
+        "/S3SizeTrackingStack/sizeTrackingLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sizeTrackingLambda64EF4E14"
+          }
+        ],
+        "/S3SizeTrackingStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+          }
+        ],
+        "/S3SizeTrackingStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36"
+          }
+        ],
+        "/S3SizeTrackingStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691"
+          }
+        ],
+        "/S3SizeTrackingStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/S3SizeTrackingStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/S3SizeTrackingStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/S3SizeTrackingStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "S3SizeTrackingStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
