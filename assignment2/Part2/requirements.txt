@@ -1,6 +1,0 @@
-aws-cdk.aws-s3
-aws-cdk.aws-dynamodb
-aws-cdk.aws-lambda
-aws-cdk-lib
-constructs
-boto3

@@ -52,12 +52,21 @@ def store_bucket_size_and_number_of_objects_in_dynamodb(bucket_name, table_name)
         print(f"Error storing {bucket_name} size and number of objects in {table_name}: {e}")
 
 def lambda_handler(event, context):
-    bucket_name = event['Records'][0]['s3']['bucket']['name']
-
     table_name = os.environ['TABLE_NAME'] 
+
+    for record in event['Records']:
+        bucket_name = record['s3']['bucket']['name']
+        object_key = record['s3']['object']['key']
+
+        # Ignore objects with the "plot/" prefix, so plot will not trigger s3 event
+        if object_key.startswith("plot/"):
+            print(f"Ignoring plot file: {object_key}")
+            continue
     
-    # store bucket size and number of objects in dynamodb
-    store_bucket_size_and_number_of_objects_in_dynamodb(bucket_name, table_name)
+        print(f"Processing object: {object_key} in bucket: {bucket_name}")
+
+        # store bucket size and number of objects in dynamodb
+        store_bucket_size_and_number_of_objects_in_dynamodb(bucket_name, table_name)
     
     return {
         'statusCode': 200,

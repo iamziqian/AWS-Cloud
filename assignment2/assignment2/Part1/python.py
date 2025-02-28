@@ -94,10 +94,10 @@ def store_bucket_size_and_number_of_objects_in_dynamodb(bucket_name, table_name)
 
 def main():
     bucket_name = 'violet-test-bucket-ziqianfu-part1'
-    # create_s3_bucket(bucket_name)
+    create_s3_bucket(bucket_name)
 
     table_name = 'S3-object-size-history-part1'
-    # create_dynamodb_table(table_name)
+    create_dynamodb_table(table_name)
 
     store_bucket_size_and_number_of_objects_in_dynamodb(bucket_name, table_name)
 
