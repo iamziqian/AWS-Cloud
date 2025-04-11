@@ -8,9 +8,9 @@ bucket_name = os.environ["S3_BUCKET_NAME"]
 
 '''
 P1  60s/ P2 60s
-+19 +28 +2/ 0: 19 -> 47 -> 49 -> 21
-+19 + 28 / +2: 19 -> 47 -> 19 -> 2
-+19 / +28 + 2: 19 -> 28 -> 30 -> 2
++19 +28 +2/ 0: bucket size(19 -> 47 -> 49 -> 21) log(+19, +28, +2, -28)
++19 + 28 / +2: bucket size(19 -> 47 -> 19 -> 21) log(+19, +28, -28, +2)
++19 / +28 + 2: bucket size(19 -> 47 -> 49 -> 21) log(+19, +28, +2, -28)
 '''
 
 def lambda_handler(event, context):
@@ -32,7 +32,7 @@ def lambda_handler(event, context):
     )
     print("Created assignment2.txt with content 'Empty Assignment 2222222222 '") #28 bytes
 
-    time.sleep(55)
+    time.sleep(70)
     
     # (At this point, the alarm should fire and Cleaner should delete `assignment2.txt`
 
@@ -44,7 +44,7 @@ def lambda_handler(event, context):
     )
     print("Created assignment3.txt with content '33'") #2 bytes
 
-    time.sleep(55)
+    time.sleep(40)
     # (At this point, the alarm should fire and Cleaner should delete `assignment1.txt`
 
     # Lastly, call the API exposed for the plotting lambda
