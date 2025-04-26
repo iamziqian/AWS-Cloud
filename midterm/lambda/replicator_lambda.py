@@ -42,11 +42,21 @@ def handle_put_event(src_bucket, src_key):
     )
     items = response.get('Items', [])
 
-    # number of copies > 3, delete the oldest copy
-    if len(items) > 3:
+    # number of copies > 3, mark the oldest copy as disowned
+    if len(items) >= 3:
         oldest_item = sorted(items, key=lambda x: x['CreatedAtTimestamp'])[0]
-        table.delete_item(Key={'SrcObjName': oldest_item['SrcObjName'], 'CreatedAtTimestamp': oldest_item['CreatedAtTimestamp']})
-        s3.delete_object(Bucket=dst_bucket, Key=oldest_item['DstObjName'])
+        # table.delete_item(Key={'SrcObjName': oldest_item['SrcObjName'], 'CreatedAtTimestamp': oldest_item['CreatedAtTimestamp']})
+        table.update_item(
+            Key={
+                'SrcObjName': oldest_item['SrcObjName'],
+                'CreatedAtTimestamp': oldest_item['CreatedAtTimestamp']
+            },
+            UpdateExpression='SET IsDisowned = :disowned, DisownedAtTimestamp = :time',
+            ExpressionAttributeValues={
+                ':disowned': 1, #true - disowned
+                ':time': int(time.time())
+            }
+        )
 
     # insert a new copy record into the dynamodb table
     table.put_item(Item={
@@ -54,7 +64,7 @@ def handle_put_event(src_bucket, src_key):
         'CreatedAtTimestamp': timestamp,
         'DstObjName': dst_key,
         'IsDisowned': 0, #false - not disowned
-        'DisownedAtTimestamp': None
+        'DisownedAtTimestamp': 0
     })
 
 def handle_delete_event(src_key):
